@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: your-username/nature-frontend-client
+  repository: ${{ secrets.DOCKER_USERNAME }}/nature-frontend-client
   tag: latest
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
