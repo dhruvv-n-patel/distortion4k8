@@ -27,5 +27,5 @@ jobs:
 
       - name: Upgrade Helm chart
         run: |
-          helm upgrade --install nature-frontend ./path/to/your/helm/chart --set image.repository=your-username/nature-frontend-client,image.tag=latest
+          helm upgrade --install nature-frontend ../mychart/chart --set image.repository=${{ secrets.DOCKER_USERNAME }}/nature-frontend-client,image.tag=latest
 
