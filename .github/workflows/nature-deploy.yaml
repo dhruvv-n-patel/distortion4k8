@@ -17,7 +17,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install Helm
-        uses: azure/setup-helm@v1
+        uses: helm/install-helm@v1
+        with:
+         helm-version: 'v3.14.0'
 
       - name: Set up kubectl
         uses: azure/setup-kubectl@v1
