@@ -28,4 +28,8 @@ jobs:
       - name: Upgrade Helm chart
         run: |
           helm upgrade --install nature-frontend ./mychart --set image.repository=${{ secrets.DOCKER_USERNAME }}/nature-frontend-client,image.tag=latest
+      - name: Apply Kubernetes manifest
+        run: |
+          kubectl apply -f ./manifest/manifest.yaml
+          
 
