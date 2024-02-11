@@ -27,10 +27,7 @@ jobs:
         uses: azure/setup-kubectl@v1
         with:
          kubeconfig: ${{ secrets.KUBE_CONFIG_DATA }}
-
-      - name: Initialize Helm
-        run: helm init --client-only
-
+         
       - name: Add Helm repository
         run: helm repo add my-repo nbsnv5p/my-repo
 
