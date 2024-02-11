@@ -17,11 +17,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install Helm
-        run: |
-         wget https://get.helm.sh/helm-v3.14.0-linux-amd64.tar.gz
-         tar -zxvf helm-v3.14.0-linux-amd64.tar.gz
-         sudo mv linux-amd64/helm /usr/local/bin/helm
-         helm version
+        uses: azure/setup-helm@v3.3
+        with:
+          version: v3.14.0
 
       - name: Set up kubectl
         uses: azure/setup-kubectl@v1
@@ -29,7 +27,7 @@ jobs:
          kubeconfig: ${{ secrets.KUBE_CONFIG_DATA }}
          
       - name: Add Helm repository
-        run: helm repo add my-repo nbsnv5p/my-repo
+        run: helm repo add mychart https://github.com/nbsnv5p/distortion4k8/tree/main
 
 
       - name: Configure Docker registry credentials
